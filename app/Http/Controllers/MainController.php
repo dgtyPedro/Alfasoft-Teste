@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Contact;
 use Illuminate\Support\Facades\Validator;
 
-class Main extends Controller
+class MainController extends Controller
 {
     public function Home()
     {
@@ -23,7 +23,7 @@ class Main extends Controller
     public function SeeContact($id)
     {
         $data['contact'] = Contact::find($id);
-        
+
         if(empty($data['contact']))
         {
             echo 'ERROR: Contact not founded';

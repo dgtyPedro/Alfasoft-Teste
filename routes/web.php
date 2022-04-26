@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\Main;
+use App\Http\Controllers\MainController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,7 +19,7 @@ Route::get('/Laravel', function () {
     return view('welcome');
 });
 
-Route::controller(Main::class)->group(function () { 
+Route::controller(MainController::class)->group(function () { 
     Route::get('/', 'Home')->name('Home');
     Route::middleware([verifySession::class])->group(function () {
         Route::get('/Del/{id}', 'DeleteContact')->name('Delete Contact');
