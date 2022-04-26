@@ -13,7 +13,9 @@
 </head>
 
 <body>
-    <a href="../">Home</a>
+    <br/>
+    <a href="../" style="margin: 2%">Go Home</a>
+    <div id="logincanvas">
     <form method="POST">
         @csrf
         <div class="login">
@@ -21,7 +23,6 @@
             <p>{{$alert}}</p>
             @endisset
             <div>
-                
                 <h1>Login</h1>
                 <input placeholder="Username" name="username" required/>
                 <input placeholder="Password" name="password" type="password" required/>
@@ -29,8 +30,7 @@
             </div>
         </div>
     </form>
+    </div>
 </body>
-
-
 
 </html>

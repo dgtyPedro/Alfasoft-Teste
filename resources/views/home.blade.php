@@ -13,7 +13,7 @@
 <body>
     <nav>
         <a href="../CreateContact">Create Contact</a>
-        <p>Timezone: Europe/Lisbon</p>
+        <p>Timezone: Europe/Lisbon ({{date('Y-m-d H:i:s')}})</p>
         <p>AlfaSoft Pedro Caires</p>
     </nav>
 
@@ -47,7 +47,7 @@
 
 <footer>
     @if (Session::get('logged_in'))
-        <a href="../Logout">Logout</a>
+        <a href="../Logout">Logout ({{Session::get('user_username')}})</a>
     @else
         <a href="../Login">Login</a>
     @endif

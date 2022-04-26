@@ -27,7 +27,7 @@
 
 <footer>
     @if (Session::get('logged_in'))
-        <a href="../Logout">Logout</a>
+        <a href="../Logout">Logout ({{Session::get('user_username')}})</a>
     @else
         <a href="../Login">Login</a>
     @endif
