@@ -7,6 +7,13 @@
     <title>Document</title>
 </head>
 <body>
-    <p>{{$contact->id}}</p>
+    <a href="../">Go Back</a>
+    <a href="../Edit/{{$contact->id}}">Edit Contact</a>
+    <p>ID: {{$contact->id}}</p>
+    <p>Name: {{$contact->name}}</p>
+    <p>Contact: {{$contact->contact}}</p>
+    <p>Email Address: {{$contact->email_address}}</p>
+    <p>Created At: {{$contact->created_at}}</p>
+    <p>Last Time Edited: {{$contact->updated_at}}</p>
 </body>
 </html>

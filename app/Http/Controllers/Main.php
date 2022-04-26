@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Models\Contact;
 use Illuminate\Support\Facades\Validator;
 
-
 class Main extends Controller
 {
     public function Home()
@@ -18,21 +17,45 @@ class Main extends Controller
     public function DeleteContact($id)
     {
         Contact::where('id', $id)->delete();
-        header('Location: ../');
-        exit();
+        return redirect('/');
     }
 
     public function SeeContact($id)
     {
         $data['contact'] = Contact::find($id);
-        echo view('seecontact', $data);
+        return view('seecontact', $data);
     }
 
-    public function EditContact($id)
+    public function EditContact($id, Request $request)
     {
-        Contact::where('id', $id)->delete();
-        header('Location: ../');
-        exit();
+        if($request->post('_token'))
+        {
+            $validator = Validator::make($request->all(), [
+                'name' => 'required|min:5',
+                'contact' => 'required|digits:9',
+                'email_address' => 'required|email:rfc,dns'
+            ], $messages=[
+                'required' => 'The :attribute field is required.',
+                'digits' => 'The :attribute field must have 9 digits.',
+                'email' => 'The :attribute must be a valid email.',
+                'min' => 'The :attribute field must have at least 5 characters'
+            ]);
+
+            // $validated = $validator->validated();
+
+            if($validator->fails())
+            {
+                $errors = $validator->errors();
+                $data['errors'] = $errors;  
+            }else{
+                Contact::where('id', $id)->update($request->except('_token'));
+                $data['response'] = 'Contact updated successfully';
+                // $validated = $validator->validated();
+            }
+        }
+
+        $data['contact'] = Contact::find($id);
+        return view('editcontact', $data);
     }
 
     public function CreateContact(Request $request)
@@ -61,12 +84,14 @@ class Main extends Controller
                 $data['errors'] = $errors;  
             }else{
                 Contact::create($request->except('_token'));
-                $data['response'] = 'Contact created successfully';
+                return redirect('/');
                 // $validated = $validator->validated();
             }
-            
         }
 
         return view('createcontact', $data);
     }
+
 }
+
+

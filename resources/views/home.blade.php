@@ -28,9 +28,9 @@
             <td>{{$contact->id}}</td>
             <td>{{$contact->name}}</td>
             <td>
-                <a href="../Del/{{$contact->id}}">Delete</a>
                 <a href="../See/{{$contact->id}}">See</a>
                 <a href="../Edit/{{$contact->id}}">Edit</a>
+                <a href="../Del/{{$contact->id}}">Delete</a>
             </td>
         </tr>
         @empty

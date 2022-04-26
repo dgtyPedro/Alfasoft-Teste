@@ -23,6 +23,7 @@ Route::controller(Main::class)->group(function () {
     Route::get('/Del/{id}', 'DeleteContact')->name('Delete Contact');
     Route::get('/See/{id}', 'SeeContact')->name('See Contact');
     Route::get('/Edit/{id}', 'EditContact')->name('Edit Contact');
+    Route::post('/Edit/{id}', 'EditContact');
     Route::get('/CreateContact', 'CreateContact')->name('Create Contact');
     Route::post('/CreateContact', 'CreateContact');
 });
