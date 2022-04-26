@@ -20,7 +20,10 @@ Route::get('/Laravel', function () {
 
 Route::controller(Main::class)->group(function () { 
     Route::get('/', 'Home')->name('Home');
-    Route::get('/CreateContact', 'CreateContact')->name('CreateContact');
+    Route::get('/Del/{id}', 'DeleteContact')->name('Delete Contact');
+    Route::get('/See/{id}', 'SeeContact')->name('See Contact');
+    Route::get('/Edit/{id}', 'EditContact')->name('Edit Contact');
+    Route::get('/CreateContact', 'CreateContact')->name('Create Contact');
     Route::post('/CreateContact', 'CreateContact');
 });
 
