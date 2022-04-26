@@ -23,7 +23,13 @@ class Main extends Controller
     public function SeeContact($id)
     {
         $data['contact'] = Contact::find($id);
-        return view('seecontact', $data);
+        
+        if(empty($data['contact']))
+        {
+            echo 'ERROR: Contact not founded';
+        }else{
+            return view('editcontact', $data);
+        }
     }
 
     public function EditContact($id, Request $request)
@@ -55,7 +61,14 @@ class Main extends Controller
         }
 
         $data['contact'] = Contact::find($id);
-        return view('editcontact', $data);
+
+        if(empty($data['contact']))
+        {
+            echo 'ERROR: Contact not founded';
+        }else{
+            return view('editcontact', $data);
+        }
+        
     }
 
     public function CreateContact(Request $request)
