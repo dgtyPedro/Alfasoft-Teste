@@ -21,16 +21,17 @@
         <tr>
             <th>ID</th>
             <th>Name</th>
-            <th>Contact</th>
-            <th>Email Address</th>
             <th>Actions</th>
         </tr>
         @forelse ($contacts as $contact)
         <tr>
             <td>{{$contact->id}}</td>
             <td>{{$contact->name}}</td>
-            <td>{{$contact->contact}}</td>
-            <td>{{$contact->email_address}}</td>
+            <td>
+                <a href="../Del/{{$contact->id}}">Delete</a>
+                <a href="../See/{{$contact->id}}">See</a>
+                <a href="../Edit/{{$contact->id}}">Edit</a>
+            </td>
         </tr>
         @empty
         <p>No contacts found</p>    
