@@ -64,6 +64,12 @@ td,th{
     flex-direction: column;
 }
 
+td > a {
+    border: 1px solid black;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
 #logincanvas{
     display: flex;
     flex-direction: column;

@@ -89,6 +89,13 @@ td, th {
           flex-direction: column;
 }
 
+td > a {
+  border: 1px solid black;
+  padding: 5px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 #logincanvas {
   display: -webkit-box;
   display: -ms-flexbox;
