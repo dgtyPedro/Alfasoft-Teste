@@ -91,6 +91,7 @@ class Main extends Controller
 
         return view('createcontact', $data);
     }
+    
 
 }
 

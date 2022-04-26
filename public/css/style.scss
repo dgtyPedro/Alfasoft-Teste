@@ -1,4 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
 *{
     margin: 0;
     padding: 0;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1%;
+}
+
+#contactlist{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-inline: 10vw;
+}
+
+#contactlist > table,tr,td,th{
+    border: 1px solid black;
+}
+
+td,th{
+    padding: 8px;
+}
+
+#editcontainer{
+    display: flex;
+    height: 80vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.alert{
+    margin-inline: 5vw;
+}
+
+#editcontainer>div{
+    margin-inline: 5vw;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }

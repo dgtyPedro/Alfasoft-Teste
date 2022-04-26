@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Main;
 use Illuminate\Support\Facades\Route;
 
@@ -20,12 +21,19 @@ Route::get('/Laravel', function () {
 
 Route::controller(Main::class)->group(function () { 
     Route::get('/', 'Home')->name('Home');
-    Route::get('/Del/{id}', 'DeleteContact')->name('Delete Contact');
-    Route::get('/See/{id}', 'SeeContact')->name('See Contact');
-    Route::get('/Edit/{id}', 'EditContact')->name('Edit Contact');
-    Route::post('/Edit/{id}', 'EditContact');
-    Route::get('/CreateContact', 'CreateContact')->name('Create Contact');
-    Route::post('/CreateContact', 'CreateContact');
+    Route::middleware([verifySession::class])->group(function () {
+        Route::get('/Del/{id}', 'DeleteContact')->name('Delete Contact');
+        Route::get('/See/{id}', 'SeeContact')->name('See Contact');
+        Route::get('/Edit/{id}', 'EditContact')->name('Edit Contact');
+        Route::post('/Edit/{id}', 'EditContact');
+        Route::get('/CreateContact', 'CreateContact')->name('Create Contact');
+        Route::post('/CreateContact', 'CreateContact');
+    });
 });
 
+Route::controller(AuthController::class)->group(function () { 
+    Route::get('/Login', 'index')->name('Login');
+    Route::post('/Login', 'index');
+    Route::get('/Logout', 'Logout')->name('Logout');
+});
 
