@@ -9,6 +9,7 @@
 <body>
     <nav>
         <a href="#">AlfaSoft Pedro Caires</a>
+        <p>Timezone: Europe/Lisbon</p>
     </nav>
 
     <div id="contactlist">
