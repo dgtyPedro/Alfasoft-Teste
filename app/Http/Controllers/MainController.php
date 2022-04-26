@@ -28,7 +28,7 @@ class MainController extends Controller
         {
             echo 'ERROR: Contact not founded';
         }else{
-            return view('editcontact', $data);
+            return view('seecontact', $data);
         }
     }
 
