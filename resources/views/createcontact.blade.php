@@ -42,7 +42,7 @@
                 <td><input type="text" name="name" minlength="5" required/></td>
                 <td><input type="number" name="contact" required/></td>
                 <td><input type="email" name="email_address" required/></td>
-                <td><input type="submit"/></td>
+                <td><input type="submit" value="Create"/></td>
             </form>
         </tr>
     </table>
